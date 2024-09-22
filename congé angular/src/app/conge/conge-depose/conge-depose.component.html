@@ -1,0 +1,121 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congés</title>
+</head>
+
+
+<body id="page-top">
+    
+<div id="content-wrapper" style="background-image: url(../../assets/back-7.png); background-size: cover;">
+    <div id="content" style="height: 749px;">
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow mb-5">
+
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+        </button>
+
+        <!-- Topbar Search -->
+        <form
+            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                    aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fa fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Salut {{emp.nom}} {{emp.prenom}}</span>
+                    <img class="img-profile rounded-circle"
+                        src="../../assets/img/undraw_profile_2.svg">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    <!--<div class="dropdown-divider"></div>-->
+                    <a class="dropdown-item" (click)="logout()" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fa fa-sign-out fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+    <!-- End of Topbar -->
+    <!-- DataTales Example -->
+
+
+    <div class="container-fluid" >
+
+        <div class="card shadow mb-4 mt-4">
+            
+            <div class="card-header py-3">
+                <div class="row">
+
+                    <div class="col-6 mt-3">
+                        <h4 class="m-0 font-weight-bold text-primary">TABLE DES CONGES</h4>
+                    </div>
+                    <div class="col-6 d-flex justify-content-end ">
+                        <button class="cssbuttons-io-button mr-1 mt-1" (click)="deposer()"> Deposer
+                            <div class="icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"></path></svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>NATURE</th>
+                                <th>DATE DE DEBUT</th>
+                                <th>DATE DE FIN</th>
+                                <th>DATE DE REPRISE</th>
+                                <th>Etat</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            <tr *ngFor="let conge of congesarray">
+                                <th scope="row">{{conge.nature}}</th>
+                                <td>{{conge.date_d}}</td>
+                                <td>{{conge.date_f}}</td>
+                                <td>{{conge.date_rep}}</td>
+                                <td>{{conge.etat}}</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
+
+
+

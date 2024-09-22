@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rapport</title>
+</head>
+
+<body>
+
+  <div class="button container-fluid mt-1" (click)="generatePdf()">
+    <div class="button-wrapper">
+      <div class="text">Download</div>
+        <span class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17"></path></svg>
+        </span>
+      </div>
+  </div>
+  <hr>
+
+  <div id="pdf-content">
+    <h1 class="text-center"> RAPPORT GENERALE</h1>
+
+    <h5 class="mt-5 ml-1">
+        <strong>=>nombre de départements: {{departmentsarray.length}}</strong> <br>
+    </h5>
+    
+    <p class="ml-3">
+        <tr  *ngFor="let department of departmentsarray">
+            <td>{{department.nom}}</td>
+        </tr>
+    </p>
+
+    <h5 class="mt-2 ml-1">
+        <strong>=>nombre des employés: {{employeesarray.length}}</strong> <br>
+    </h5>
+
+    <table class="ml-3">
+        <tr *ngFor="let employee of employeesarray">
+          <td>
+            <strong>nom:</strong> {{ employee.nom }}
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <strong>prenom:</strong> {{ employee.prenom }}
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <strong>role:</strong> {{ employee.role }}
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <strong>département:</strong> {{ employee.dep.nom }}
+          </td>
+        </tr>
+      </table>
+
+      <h5 class="mt-2 ml-1">
+        <strong>=>Les congés: {{congesarray.length}}</strong> <br>
+      </h5>
+
+    <table class="ml-3">
+        <tr *ngFor="let conge of congesarray">
+          <td>
+            <strong>date de debut:</strong> {{ conge.date_d }}
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <strong>date de fin:</strong> {{ conge.date_f }}
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <strong>nature:</strong> {{ conge.nature}}
+          </td>
+          <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td>
+            <strong>déposé par:</strong> {{ conge.emp.nom }}
+          </td>
+        </tr>
+      </table>
+
+      <h5 class="mt-2 ml-1">
+        <strong>=>pourcentage des congés: {{((congesarray.length*60)/100)}}%</strong> <br>
+      </h5>
+    </div>
+</body>
+</html>
